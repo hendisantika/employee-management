@@ -41,4 +41,8 @@ public class EmployeeService {
         }
         return employee;
     }
+
+    public void deleteEmployeeById(long id) {
+        this.employeeRepository.deleteById(id);
+    }
 }
