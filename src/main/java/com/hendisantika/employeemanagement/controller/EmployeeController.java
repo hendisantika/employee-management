@@ -1,5 +1,6 @@
 package com.hendisantika.employeemanagement.controller;
 
+import com.hendisantika.employeemanagement.entity.Employee;
 import com.hendisantika.employeemanagement.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,5 +26,13 @@ public class EmployeeController {
     @GetMapping("/")
     public String viewHomePage(Model model) {
         return findPaginated(1, "firstName", "asc", model);
+    }
+
+    @GetMapping("/showNewEmployeeForm")
+    public String showNewEmployeeForm(Model model) {
+        // create model attribute to bind form data
+        Employee employee = new Employee();
+        model.addAttribute("employee", employee);
+        return "new_employee";
     }
 }
